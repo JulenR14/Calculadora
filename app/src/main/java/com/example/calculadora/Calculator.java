@@ -71,10 +71,8 @@ public class Calculator {
             @Override
             public void onClick(View v) {
 
-                //variable en la que iremos sumando lo valores
-                totalSuma = Arrays.stream(muestraOperacion.split("\\+")).mapToInt(n -> Integer.parseInt(n)).sum();
                 //cambiamos el valor de nuestra operacion al resultado de la suma
-                muestraOperacion = String.valueOf(totalSuma);
+                muestraOperacion = String.valueOf(calcularOperacion(muestraOperacion));
                 //modficamos el textView con el resultado de la operacion
                 textoOperacion.setText(muestraOperacion);
                 //limpiamos la operacion anterior, porque ya no la necesitamos
@@ -87,6 +85,30 @@ public class Calculator {
             }
         });
 
+    }
+
+    public static int calcularOperacion(String muestra){
+        int total = 0;
+        String[] operacion = muestra.split("");
+        ArrayList<String> soloSumas = new ArrayList<String>();
+        int contadorSoloSum = 0;
+        int resultadoMultiplicacion;
+
+        for (int i = 0; i < operacion.length; i++ ){
+            if(operacion[i].equals("*")){
+                resultadoMultiplicacion = Integer.parseInt(operacion[i - 1]) * Integer.parseInt(operacion[i + 1]);
+                soloSumas.set(contadorSoloSum - 1, String.valueOf(resultadoMultiplicacion));
+                i++;
+            }else if (!operacion[i].equals("+")){
+                soloSumas.add(operacion[i]);
+            }
+            contadorSoloSum++;
+        }
+
+        return soloSumas.stream().mapToInt(Integer::parseInt).sum();
+
+
+        //return Arrays.stream(muestra.split("\\+")).mapToInt(n -> Integer.parseInt(n)).sum();
     }
 }
 
