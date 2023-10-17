@@ -28,10 +28,23 @@
         android:layout_margin="5dp"
         android:text="="
         android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/buttonC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/button6"
+        app:layout_constraintTop_toBottomOf="@id/buttonMultiplicar" />
+
+    <Button
+        android:id="@+id/buttonMultiplicar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:text="*"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonMas"
-        app:layout_constraintBottom_toTopOf="@id/buttonC" />
+        app:layout_constraintBottom_toTopOf="@id/buttonIgual" />
 
     <Button
         android:id="@+id/buttonMas"
@@ -43,7 +56,7 @@
         app:layout_constraintStart_toEndOf="@id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"
-        app:layout_constraintBottom_toTopOf="@id/buttonIgual" />
+        app:layout_constraintBottom_toTopOf="@id/buttonMultiplicar"/>
 
     <Button
         android:id="@+id/button0"

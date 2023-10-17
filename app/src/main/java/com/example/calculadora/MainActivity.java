@@ -14,12 +14,12 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     //atributos
-
-
-
-    private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnMas, btnIgual, btnC;
+    private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnMas,btnMultiplicar, btnIgual, btnC;
     private TextView textoOperacion;
 
+    /*
+    * Metodo que ejecuta el metodo onClick del boton que se le pasa por parametro
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn8 = findViewById(R.id.button8);
         btn9 = findViewById(R.id.button9);
         btnMas = findViewById(R.id.buttonMas);
+        btnMultiplicar = findViewById(R.id.buttonMultiplicar);
         btnIgual = findViewById(R.id.buttonIgual);
         btnC = findViewById(R.id.buttonC);
         textoOperacion = findViewById(R.id.textView);
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Calculator.ejecutarBoton(btn8, textoOperacion);
         Calculator.ejecutarBoton(btn9, textoOperacion);
         Calculator.ejecutarBoton(btnMas, textoOperacion);
+        Calculator.ejecutarBoton(btnMultiplicar, textoOperacion);
         Calculator.limpiarCalculadora(btnC, textoOperacion);
         Calculator.resultadoOperacion(btnIgual, textoOperacion);
     }
